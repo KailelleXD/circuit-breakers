@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Lights Out! - Game</title>
+  </head>
+  <body class="border-dark p-5" style="font-family:'Courier New', Courier, monospace;">
+
+    <h1>Lights Out!</h1>
+
+    <div class="border-dark row">
+        <button onClick="buttonBehavior(aA,iA,aB,bA,aI)" type="button" class="aA border-dark btn btn-primary">aA</button>
+        <button type="button" class="aB border-dark btn btn-primary">aB</button>
+        <button type="button" class="aC border-dark btn btn-primary">aC</button>
+        <button type="button" class="aD border-dark btn btn-primary">aD</button>
+        <button type="button" class="aE border-dark btn btn-primary">aE</button>
+        <button type="button" class="aF border-dark btn btn-primary">aF</button>
+        <button type="button" class="aG border-dark btn btn-primary">aG</button>
+        <button type="button" class="aH border-dark btn btn-primary">aH</button>
+        <button type="button" class="aI border-dark btn btn-primary">aI</button>
+    </div>
+
+    <div class="border-dark row">
+        <button type="button" class="bA border-dark btn btn-primary">bA</button>
+        <button type="button" class="bB border-dark btn btn-primary">bB</button>
+        <button type="button" class="bC border-dark btn btn-primary">bC</button>
+        <button type="button" class="bD border-dark btn btn-primary">bD</button>
+        <button type="button" class="bE border-dark btn btn-primary">bE</button>
+        <button type="button" class="bF border-dark btn btn-primary">bF</button>
+        <button type="button" class="bG border-dark btn btn-primary">bG</button>
+        <button type="button" class="bH border-dark btn btn-primary">bH</button>
+        <button type="button" class="bI border-dark btn btn-primary">bI</button>
+    </div>
+
+    <div class="border-dark row">
+        <button type="button" class="cA border-dark btn btn-primary">cA</button>
+        <button type="button" class="cB border-dark btn btn-primary">cB</button>
+        <button type="button" class="cC border-dark btn btn-primary">cC</button>
+        <button type="button" class="cD border-dark btn btn-primary">cD</button>
+        <button type="button" class="cE border-dark btn btn-primary">cE</button>
+        <button type="button" class="cF border-dark btn btn-primary">cF</button>
+        <button type="button" class="cG border-dark btn btn-primary">cG</button>
+        <button type="button" class="cH border-dark btn btn-primary">cH</button>
+        <button type="button" class="cI border-dark btn btn-primary">cI</button>
+    </div>
+
+    <div class="border-dark row">
+        <button type="button" class="dA border-dark btn btn-primary">dA</button>
+        <button type="button" class="dB border-dark btn btn-primary">dB</button>
+        <button type="button" class="dC border-dark btn btn-primary">dC</button>
+        <button type="button" class="dD border-dark btn btn-primary">dD</button>
+        <button type="button" class="dE border-dark btn btn-primary">dE</button>
+        <button type="button" class="dF border-dark btn btn-primary">dF</button>
+        <button type="button" class="dG border-dark btn btn-primary">dG</button>
+        <button type="button" class="dH border-dark btn btn-primary">dH</button>
+        <button type="button" class="dI border-dark btn btn-primary">dI</button>
+    </div>
+
+    <div class="border-dark row">
+        <button type="button" class="eA border-dark btn btn-primary">eA</button>
+        <button type="button" class="eB border-dark btn btn-primary">eB</button>
+        <button type="button" class="eC border-dark btn btn-primary">eC</button>
+        <button type="button" class="eD border-dark btn btn-primary">eD</button>
+        <button type="button" class="eE border-dark btn btn-primary">eE</button>
+        <button type="button" class="eF border-dark btn btn-primary">eF</button>
+        <button type="button" class="eG border-dark btn btn-primary">eG</button>
+        <button type="button" class="eH border-dark btn btn-primary">eH</button>
+        <button type="button" class="eI border-dark btn btn-primary">eI</button>
+    </div>
+
+    <div class="border-dark row">
+        <button type="button" class="fA border-dark btn btn-primary">fA</button>
+        <button type="button" class="fB border-dark btn btn-primary">fB</button>
+        <button type="button" class="fC border-dark btn btn-primary">fC</button>
+        <button type="button" class="fD border-dark btn btn-primary">fD</button>
+        <button type="button" class="fE border-dark btn btn-primary">fE</button>
+        <button type="button" class="fF border-dark btn btn-primary">fF</button>
+        <button type="button" class="fG border-dark btn btn-primary">fG</button>
+        <button type="button" class="fH border-dark btn btn-primary">fH</button>
+        <button type="button" class="fI border-dark btn btn-primary">fI</button>
+    </div>
+
+    <div class="border-dark row">
+        <button type="button" class="gA border-dark btn btn-primary">gA</button>
+        <button type="button" class="gB border-dark btn btn-primary">gB</button>
+        <button type="button" class="gC border-dark btn btn-primary">gC</button>
+        <button type="button" class="gD border-dark btn btn-primary">gD</button>
+        <button type="button" class="gE border-dark btn btn-primary">gE</button>
+        <button type="button" class="gF border-dark btn btn-primary">gF</button>
+        <button type="button" class="gG border-dark btn btn-primary">gG</button>
+        <button type="button" class="gH border-dark btn btn-primary">gH</button>
+        <button type="button" class="gI border-dark btn btn-primary">gI</button>
+    </div>
+
+    <div class="border-dark row">
+        <button type="button" class="hA border-dark btn btn-primary">hA</button>
+        <button type="button" class="hB border-dark btn btn-primary">hB</button>
+        <button type="button" class="hC border-dark btn btn-primary">hC</button>
+        <button type="button" class="hD border-dark btn btn-primary">hD</button>
+        <button type="button" class="hE border-dark btn btn-primary">hE</button>
+        <button type="button" class="hF border-dark btn btn-primary">hF</button>
+        <button type="button" class="hG border-dark btn btn-primary">hG</button>
+        <button type="button" class="hH border-dark btn btn-primary">hH</button>
+        <button type="button" class="hI border-dark btn btn-primary">hI</button>
+    </div>
+
+    <div class="border-dark row">
+        <button type="button" class="iA border-dark btn btn-primary">iA</button>
+        <button type="button" class="iB border-dark btn btn-primary">iB</button>
+        <button type="button" class="iC border-dark btn btn-primary">iC</button>
+        <button type="button" class="iD border-dark btn btn-primary">iD</button>
+        <button type="button" class="iE border-dark btn btn-primary">iE</button>
+        <button type="button" class="iF border-dark btn btn-primary">iF</button>
+        <button type="button" class="iG border-dark btn btn-primary">iG</button>
+        <button type="button" class="iH border-dark btn btn-primary">iH</button>
+        <button type="button" class="iI border-dark btn btn-primary">iI</button>
+    </div>
+
+    <script>
+
+        var aA = false;
+        var iA = false;
+        var aB = false;
+        var bA = false;
+        var aI = false;
+    
+        buttonBehavior (mB, tAB, rAB, bAB, lAB) {
+            if (mB == True) {
+                mB = False;
+            } else {
+                mB = True;
+                document.getElementById("aA").classList.remove('primary');
+                document.getElementById("aA").classList.add('warning');
+            }
+
+            if (tAB == True) {
+                tAB = False;
+            } else {
+                tAB = True;
+            }
+
+            if (rAB == True) {
+                rAB = False;
+            } else {
+                rAB = True;
+            }
+
+            if (bAB == True) {
+                bAB = False;
+            } else {
+                bAB = True;
+            }
+
+            if (lAB == True) {
+                lAB = False;
+            } else {
+                lAB = True;
+            }
+        }
+
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
