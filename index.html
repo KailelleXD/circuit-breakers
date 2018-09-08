@@ -123,7 +123,7 @@
     </div>
 
     <div class="border-dark row">
-        <button onclick=randomizeReset() value="false" type="button" id="randomReset" class="border-dark btn btn-success">Randomize to Start!</button>
+        <button onclick=randomReset(btnRandomReset) value="false" type="button" id="btnRandomReset" class="border-dark btn btn-success">[Randomize to Start!]</button>
     </div>
 
     <script>
@@ -140,7 +140,7 @@
             var btnLength = btnPos.length; // Declares a Variable, Initializes with total length of Array.
                 for(var i = 0; i < btnLength; i++) {
                     var btnCheck = document.getElementById(btnPos[i].id).value; // Declares a Variable, Initializes with the boolean value of each element.
-
+                        console.log("This value is: " + btnCheck);
                     if (btnCheck == "true") { // If-Else Statmenet IF TRUE, Then FALSE, ELSE TRUE.
                         document.getElementById(btnPos[i].id).value = "false"; // Assigns the value "false" to the element.
                         console.log(document.getElementById(btnPos[i].id).value); // Console Check that the value was changed.
@@ -165,7 +165,7 @@
 
 
         // Function Declaration to Randomize the values of every button listed in the array.
-        function randomizeReset() {
+        function randomReset(valCheck) {
 
             // Declares an Array, Initializes with all button IDs.    
             var btnArr = [aA,aB,aC,aD,aE,aF,aG,aH,aI,
@@ -203,10 +203,36 @@
                 }
             }
             
-            // Section for code to toggle the color, text, and functionality of the Randomize Grid Button
+            // Section of code in randomReset() function to toggle the color, text, and functionality of the Randomize Grid Button
+            var btnCheckForReset = document.getElementById(valCheck.id).value;             
+            // console.log("randomReset onclick returns a value of: " + btnCheckForReset);
+            // console.log(document.getElementById(valCheck.id).value);
 
+            if (btnCheckForReset == "false") {
+                document.getElementById(valCheck.id).value = "true";
+                var element = document.getElementById(valCheck.id);
+                element.classList.remove("btn-success");
+                element.classList.add("btn-danger");
+                document.getElementById(valCheck.id).innerHTML = "[--Click to Reset!--]";
+            } else {
+                document.getElementById(valCheck.id).value = "false";
+                var element = document.getElementById(valCheck.id);
+                element.classList.remove("btn-danger");
+                element.classList.add("btn-success");
+                document.getElementById(valCheck.id).innerHTML = "[Randomize to Start!]";
+                
+                for (var i = 0; i < btnArr.length; i++) {
+                    //Code below will set all grid buttons to false.
+                    document.getElementById(btnArr[i].id).value = "false";
+                    var element = document.getElementById(btnArr[i].id);
+                    element.classList.remove("btn-warning");
+                    element.classList.add("btn-primary");
+                }
 
+            }
         }
+
+        
 
     </script>
 
