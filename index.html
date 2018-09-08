@@ -141,10 +141,10 @@
             var btnLength = btnPos.length; // Declares a Variable, Initializes with total length of Array.
                 for(var i = 0; i < btnLength; i++) {
                     var btnCheck = document.getElementById(btnPos[i].id).value; // Declares a Variable, Initializes with the boolean value of each element.
-                        console.log("This value is: " + btnCheck);
+                        // console.log("This value is: " + btnCheck);
                     if (btnCheck == "true") { // If-Else Statmenet IF TRUE, Then FALSE, ELSE TRUE.
                         document.getElementById(btnPos[i].id).value = "false"; // Assigns the value "false" to the element.
-                        console.log(document.getElementById(btnPos[i].id).value); // Console Check that the value was changed.
+                        // console.log(document.getElementById(btnPos[i].id).value); // Console Check that the value was changed.
                         var element = document.getElementById(btnPos[i].id); // Declares a Variable, Initializes with ID of each element.
                         element.classList.remove("btn-warning"); // Checks the class list of each element and removes "btn-warning" from the class list.
                         element.classList.add("btn-primary"); // Checks the class list of each element and adds "btn-primary" to the class list.
@@ -153,7 +153,7 @@
                         var element = document.getElementById(btnPos[i].id); // Declares a Variable, Initializes with ID of each element.
                         element.classList.remove("btn-primary"); // Checks the class list of each element and removes "btn-primary" from the class list.
                         element.classList.add("btn-warning"); // Checks the class list of each element and adds "btn-warning" to the class list.
-                        console.log(document.getElementById(btnPos[i].id).value); // Console Check that the value was changed.
+                        // console.log(document.getElementById(btnPos[i].id).value); // Console Check that the value was changed.
                     }
                 }
         }
