@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Lights Out! - Game</title>
   </head>
   <body class="border-dark p-5" style="font-family:'Courier New', Courier, monospace;">
 
-    <h1>Lights Out!</h1>
+    <h2>Circuit Breakers!</h2>
 
     <div class="border-dark row">
         <button onclick=buttonBehavior(aA,iA,aB,bA,aI) value="false" type="button" id="aA" class="border-dark btn btn-primary">aA</button>
@@ -122,38 +122,98 @@
         <button onclick=buttonBehavior(iI,hI,iA,aI,iH) value="false" type="button" id="iI" class="border-dark btn btn-primary">iI</button>
     </div>
 
+    <div class="border-dark row">
+        <button onclick=randomizeReset() value="false" type="button" id="randomReset" class="border-dark btn btn-success">Randomize to Start!</button>
+    </div>
+
     <script>
     
-        function buttonBehavior (mB, tAB, rAB, bAB, lAB) {
-            var btnPos = [mB, tAB, rAB, bAB, lAB]; //Declares an Array, Initializes with pass-through arguments.
-            var btnLength = btnPos.length; //Declares a Variable, Initializes with total length of Array.
+        /* Function Declaration with pass-through arguments for:
+                mB  - Main Button
+                tAB - Top Adjacent Button
+                rAB - Right Adjacent Button
+                bAB - Bottom Adjacent Button
+                lAB - Left Adjacent Button                     
+        -------------------------------------------------------*/
+        function buttonBehavior (mB, tAB, rAB, bAB, lAB) { 
+            var btnPos = [mB, tAB, rAB, bAB, lAB]; // Declares an Array, Initializes with pass-through arguments.
+            var btnLength = btnPos.length; // Declares a Variable, Initializes with total length of Array.
                 for(var i = 0; i < btnLength; i++) {
-                    var btnCheck = document.getElementById(btnPos[i].id).value; //Declares a Variable, Initializes with the boolean value of each element.
+                    var btnCheck = document.getElementById(btnPos[i].id).value; // Declares a Variable, Initializes with the boolean value of each element.
 
-                    if (btnCheck == "true") { //If-Else Statmenet IF TRUE, Then FALSE, ELSE TRUE.
-                        document.getElementById(btnPos[i].id).value = "false"; //Assigns the value "false" to the element.
-                        console.log(document.getElementById(btnPos[i].id).value); //Console Check that the value was changed.
-                        var element = document.getElementById(btnPos[i].id); //Declares a Variable, Initializes with ID of each element.
-                        element.classList.remove("btn-warning"); //Checks the class list of each element and removes "btn-warning" from the class list.
-                        element.classList.add("btn-primary"); //Checks the class list of each element and adds "btn-primary" to the class list.
+                    if (btnCheck == "true") { // If-Else Statmenet IF TRUE, Then FALSE, ELSE TRUE.
+                        document.getElementById(btnPos[i].id).value = "false"; // Assigns the value "false" to the element.
+                        console.log(document.getElementById(btnPos[i].id).value); // Console Check that the value was changed.
+                        var element = document.getElementById(btnPos[i].id); // Declares a Variable, Initializes with ID of each element.
+                        element.classList.remove("btn-warning"); // Checks the class list of each element and removes "btn-warning" from the class list.
+                        element.classList.add("btn-primary"); // Checks the class list of each element and adds "btn-primary" to the class list.
                     } else {
                         document.getElementById(btnPos[i].id).value = "true";
-                        var element = document.getElementById(btnPos[i].id); //Declares a Variable, Initializes with ID of each element.
-                        element.classList.remove("btn-primary"); //Checks the class list of each element and removes "btn-primary" from the class list.
-                        element.classList.add("btn-warning"); //Checks the class list of each element and adds "btn-warning" to the class list.
-                        console.log(document.getElementById(btnPos[i].id).value); //Console Check that the value was changed.
+                        var element = document.getElementById(btnPos[i].id); // Declares a Variable, Initializes with ID of each element.
+                        element.classList.remove("btn-primary"); // Checks the class list of each element and removes "btn-primary" from the class list.
+                        element.classList.add("btn-warning"); // Checks the class list of each element and adds "btn-warning" to the class list.
+                        console.log(document.getElementById(btnPos[i].id).value); // Console Check that the value was changed.
                     }
                 }
         }
+
+        
+        // Function Declaration to get a random number depending on inputs.
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        } // var randomNumber = getRandomInt(2);
+
+
+        // Function Declaration to Randomize the values of every button listed in the array.
+        function randomizeReset() {
+
+            // Declares an Array, Initializes with all button IDs.    
+            var btnArr = [aA,aB,aC,aD,aE,aF,aG,aH,aI,
+                          bA,bB,bC,bD,bE,bF,bG,bH,bI,
+                          cA,cB,cC,cD,cE,cF,cG,cH,cI,
+                          dA,dB,dC,dD,dE,dF,dG,dH,dI,
+                          eA,eB,eC,eD,eE,eF,eG,eH,eI,
+                          fA,fB,fC,fD,fE,fF,fG,fH,fI,
+                          gA,gB,gC,gD,gE,gF,gG,gH,gI,
+                          hA,hB,hC,hD,hE,hF,hG,hH,hI,
+                          iA,iB,iC,iD,iE,iF,iG,iH,iI];
             
+            // For loop, Generates a random number (0 or 1), IF 1 THEN TRUE, IF ELSE(0) THEN FALSE.
+            for (var i = 0; i < btnArr.length; i++) { 
+                var randomNumber = getRandomInt(2); // Calls getRandomInt() function.
+
+                if (randomNumber == 1) {
+                    document.getElementById(btnArr[i].id).value = "true"; // Changes the value of a given button to true.
+                    // console.log(document.getElementById(btnArr[i].id).value);
+                    var element = document.getElementById(btnArr[i].id); // Logs the buttons different attributes.
+                    // console.log(element);
+                    // console.log("I have logged the button at " + element.id);
+                    // console.log("It's value is currently set at: " + element.value);
+                    element.classList.remove("btn-primary"); // Checks the class list of each element and removes "btn-primary" from the class list.
+                    element.classList.add("btn-warning"); // Checks the class list of each element and adds "btn-warning" to the class list.   
+                } else {
+                    document.getElementById(btnArr[i].id).value = "false"; // Changes the value of a given button to true.
+                    // console.log(document.getElementById(btnArr[i].id).value);
+                    var element = document.getElementById(btnArr[i].id); // Logs the buttons different attributes.
+                    // console.log(element);
+                    // console.log("I have logged the button at " + element.id);
+                    // console.log("It's value is currently set at: " + element.value);
+                    element.classList.remove("btn-warning"); // Checks the class list of each element and removes "btn-warning" from the class list.
+                    element.classList.add("btn-primary"); // Checks the class list of each element and adds "btn-primary" to the class list. 
+                }
+            }
             
+            // Section for code to toggle the color, text, and functionality of the Randomize Grid Button
+
+
+        }
 
     </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
